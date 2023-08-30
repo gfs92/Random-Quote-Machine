@@ -1,25 +1,30 @@
 $(document).ready(function () {
+  // * Sets the quote when the page loads
   setQuote();
+  // * Listens for the new quote button click, on the click, run onclick function below
   $("#generate-quote").on("click", onclick);
 });
 
 function onclick() {
+  // * Sets a new quote
   setQuote();
 }
 
-
 function setQuote() {
+  // * API call using the ajax method in jQuery
   $.ajax({
+    // * Settings that are used to send the API call
     url: "http://localhost:3000/api/random",
     type: "GET",
     dataType: "json",
     headers: {
       accept: "application/json",
     },
+    // * What happens after the API call comes back if it's successful
     success: function (data) {
       $("#text").text('"' + data.quote + '"');
       $("#author").text("-" + data.character);
-      $("#game").text(", " + data.title)
+      $("#game").text(", " + data.title);
       // data is a quote in JSON form
       //   {
       //     "id": 307,
@@ -30,8 +35,8 @@ function setQuote() {
       //     "release": 2005
       // }
       console.log(data);
-      // TODO: Use the data object to set the text of the #text & #author element like line 6
     },
+    // * What happens if the API call fails
     error: function (xhr, status) {
       alert("error");
     },
