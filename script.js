@@ -17,8 +17,8 @@ function setQuote() {
       accept: "application/json",
     },
     success: function (data) {
-      $("#text").text(data.quote);
-      $("#author").text(data.character);
+      $("#text").text('"' + data.quote + '"');
+      $("#author").text("-" + data.character);
       // data is a quote in JSON form
       //   {
       //     "id": 307,
