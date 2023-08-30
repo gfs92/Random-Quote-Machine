@@ -19,6 +19,7 @@ function setQuote() {
     success: function (data) {
       $("#text").text('"' + data.quote + '"');
       $("#author").text("-" + data.character);
+      $("#game").text(", " + data.title)
       // data is a quote in JSON form
       //   {
       //     "id": 307,

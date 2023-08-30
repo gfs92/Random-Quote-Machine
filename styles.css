@@ -4,7 +4,7 @@ body {
     align-items: center;
     background-color: rgb(3, 128, 211);
     height: 100vh;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+    font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
 
@@ -26,11 +26,19 @@ body {
 }
 
 .quote-author {
+
     font-weight: lighter;
     font-size: 1.4em;
     padding-bottom: 10px;
     margin: 0px;
-    text-align: right;
+    text-align: center;
+}
+
+.quote-game {
+    font-weight: lighter;
+    font-size: 1.4em;
+    padding-bottom: 10px;
+    margin: 0px;
 }
 
 p {
@@ -74,6 +82,7 @@ a {
 /* How to condense this */
 #tweet-quote {
     justify-content: flex-start;
+
 
 }
 
