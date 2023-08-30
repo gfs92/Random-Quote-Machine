@@ -22,6 +22,18 @@ app.get("/api/random", async (req, res) => {
   }
 });
 
+app.get("/api/quote/game", async (req, res) => {
+  try {
+    const title = req.query.title;
+    const response = await axios.get(
+      `https://ultima.rest/api/quote/game?title=${title}`
+    );
+    res.json(response.data);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
