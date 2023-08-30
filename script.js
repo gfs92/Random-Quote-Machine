@@ -1,11 +1,12 @@
 $(document).ready(function () {
+  setQuote();
   $("#generate-quote").on("click", onclick);
 });
 
 function onclick() {
-  //    $("#text").text("test");
   setQuote();
 }
+
 
 function setQuote() {
   $.ajax({
@@ -16,6 +17,8 @@ function setQuote() {
       accept: "application/json",
     },
     success: function (data) {
+      $("#text").text(data.quote);
+      $("#author").text(data.character);
       // data is a quote in JSON form
       //   {
       //     "id": 307,
