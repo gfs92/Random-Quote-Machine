@@ -15,6 +15,8 @@ $("#game-select").on("change", function () {
     var_url = "http://localhost:3000/api/quote/game?title=animal+crossing+new+horizons";
   } else if (menu == "Horizon Zero Dawn") {
     var_url = "http://localhost:3000/api/quote/game?title=horizon+zero+dawn"
+  } else {
+    var_url = "http://localhost:3000/api/random";
   }
   console.log(var_url);
 });
