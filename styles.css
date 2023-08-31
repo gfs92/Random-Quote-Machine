@@ -11,7 +11,7 @@ body {
 #quote-box {
     border-radius: 10px;
     padding: 20px;
-    width: 500px;
+    width: 550px;
     background-color: rgb(255, 255, 255);
     color: rgb(3, 128, 211);
 }
@@ -80,6 +80,19 @@ a {
 }
 
 /* How to condense this */
+.dropdown-menu {
+    display: flex;
+    justify-content: center;
+}
+
+#game-select {
+    border-radius: 5px;
+    width: 220px;
+    font-family: inherit;
+    color: inherit;
+
+}
+
 #tweet-quote {
     justify-content: flex-start;
 
