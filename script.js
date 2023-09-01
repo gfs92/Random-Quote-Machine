@@ -2,8 +2,13 @@ $(document).ready(function () {
   // * Sets the quote when the page loads
   setQuote();
   // * Listens for the new quote button click, on the click, run onclick function below
-  $("#generate-quote").on("click", onclick);
+  $("#generate-quote").on("click", function () {
+    onclick();
+    //is this correct way to run multiple functions with one jquery event?
+    bgFade();
+  })
 });
+
 let var_url = "http://localhost:3000/api/random";
 $("#game-select").on("change", function () {
   let menu = this.value;
@@ -19,6 +24,9 @@ $("#game-select").on("change", function () {
     var_url = "http://localhost:3000/api/random";
   }
 });
+function bgFade() {
+  $('body'.background).fadeTo(5000, 0);
+}
 
 function setQuote() {
 
@@ -57,19 +65,35 @@ function setQuote() {
 function onclick() {
   selectElement = document.querySelector("#game-select")
   output = selectElement.value
+  bgColor = ""
+  txtColor = ""
+  btnColor = ""
   if (output == "Elden Ring") {
-    document.body.style.backgroundColor = "#D7BC2D";
-    document.body.style.color = "#D7BC2D";
+    bgColor = "#D7BC2D";
+    txtColor = "#D7BC2D";
+    btnColor = "#D7BC2D";
   } else if (output == "Mass Effect 3") {
-    document.body.style.backgroundColor = "#3A4E82";
-    document.body.style.color = "#3A4E82";
+    bgColor = "#3A4E82";
+    txtColor = "#3A4E82";
+    btnColor = "#3A4E82";
   } else if (output == "Horizon Zero Dawn") {
-    document.body.style.backgroundColor = "#43CAA3";
-    document.body.style.color = "#43CAA3";
+    bgColor = "#43CAA3";
+    txtColor = "#43CAA3";
+    btnColor = "#43CAA3";
   } else if (output == "Animal Crossing: New Horizons") {
-    document.body.style.backgroundColor = "#339957";
-    document.body.style.color = "#339957";
+    bgColor = "#339957";
+    txtColor = "#339957";
+    btnColor = "#339957";
+  } else {
+    bgColor = "rgb(3, 128, 211)";
+    txtColor = "rgb(3, 128, 211)";
+    btnColor = "rgb(3, 128, 211)";
   }
+  document.getElementById("generate-quote").style.backgroundColor = btnColor
+  document.getElementById("tweet-quote").style.backgroundColor = btnColor
+  document.body.style.backgroundColor = bgColor
+  document.body.style.color = txtColor
+  console.log(document.body.style.backgroundColor)
   // * Sets a new quote
   setQuote();
 }
