@@ -18,9 +18,7 @@ $("#game-select").on("change", function () {
   } else {
     var_url = "http://localhost:3000/api/random";
   }
-  console.log(var_url);
 });
-
 
 function setQuote() {
 
@@ -57,6 +55,21 @@ function setQuote() {
   });
 }
 function onclick() {
+  selectElement = document.querySelector("#game-select")
+  output = selectElement.value
+  if (output == "Elden Ring") {
+    document.body.style.backgroundColor = "#D7BC2D";
+    document.body.style.color = "#D7BC2D";
+  } else if (output == "Mass Effect 3") {
+    document.body.style.backgroundColor = "#3A4E82";
+    document.body.style.color = "#3A4E82";
+  } else if (output == "Horizon Zero Dawn") {
+    document.body.style.backgroundColor = "#43CAA3";
+    document.body.style.color = "#43CAA3";
+  } else if (output == "Animal Crossing: New Horizons") {
+    document.body.style.backgroundColor = "#339957";
+    document.body.style.color = "#339957";
+  }
   // * Sets a new quote
   setQuote();
 }

@@ -3,6 +3,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: rgb(3, 128, 211);
+    color: rgb(3, 128, 211);
     height: 100vh;
     font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
@@ -13,7 +14,7 @@ body {
     padding: 20px;
     width: 550px;
     background-color: rgb(255, 255, 255);
-    color: rgb(3, 128, 211);
+    color: inherit;
 }
 
 .quote-text {
@@ -23,6 +24,7 @@ body {
     font-size: 1.8em;
     text-align: center;
     margin: 0px 0px;
+    color: inherit;
 }
 
 .quote-author {
