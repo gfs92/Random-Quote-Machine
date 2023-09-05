@@ -4,8 +4,6 @@ $(document).ready(function () {
   // * Listens for the new quote button click, on the click, run onclick function below
   $("#generate-quote").on("click", function () {
     onclick();
-    //is this correct way to run multiple functions with one jquery event?
-    bgFade();
   })
 });
 
@@ -24,44 +22,60 @@ $("#game-select").on("change", function () {
     var_url = "http://localhost:3000/api/random";
   }
 });
-function bgFade() {
-  $('body'.background).fadeTo(5000, 0);
-}
 
 function setQuote() {
-
-  // * API call using the ajax method in jQuery
-  $.ajax({
-    // * Settings that are used to send the API call
-    url: var_url,
-    type: "GET",
-    dataType: "json",
-    headers: {
-      accept: "application/json",
-    },
-    // * What happens after the API call comes back if it's successful
-    success: function (data) {
-      $("#text").text('"' + data.quote + '"');
-      $("#author").text("-" + data.character);
-      $("#game").text(", " + data.title);
-      // data is a quote in JSON form
-      //   {
-      //     "id": 307,
-      //     "quote": "1998... I'll never forget it... It was the year when those grisly murders occurred in the Arklay Mountains.",
-      //     "character": "Leon Kennedy",
-      //     "title": "Resident Evil 4",
-      //     "esrb": "M",
-      //     "release": 2005
-      // }
-      console.log(var_url);
-      console.log(data);
-    },
-    // * What happens if the API call fails
-    error: function (xhr, status) {
-      alert("error");
-    },
-  });
+  fetch(var_url).then((response) => response.json()).then((data) => {
+    $("#text").text('"' + data.quote + '"');
+    $("#author").text("-" + data.character);
+    $("#game").text(", " + data.title);
+    console.log(var_url);
+    console.log(data);
+  })
+  // $.ajax({
+  //   url: var_url,
+  //   type: "GET",
+  //   dataType: "json",
+  //   headers: {
+  //     accept: "application/json",
+  //   },
+  //   success: function (data) {
+  //     $("#text").text('"' + data.quote + '"');
+  //     $("#author").text("-" + data.character);
+  //     $("#game").text(", " + data.title);
+  //     console.log(var_url);
+  //     console.log(data);
+  //   },
+  //   error: function (xhr, status) {
+  //     alert("error");
+  //   },
+  // });
 }
+const fadeButton = document.getElementById("generate-quote");
+const quoteText = document.getElementById("text");
+const authorText = document.getElementById("author");
+const gameText = document.getElementById("game");
+
+fadeButton.addEventListener("click", () => {
+  quoteText.classList.add("hidden");
+  authorText.classList.add("hidden");
+  gameText.classList.add("hidden");
+  setTimeout(() => {
+    quoteText.classList.remove("hidden");
+    authorText.classList.remove("hidden");
+    gameText.classList.remove("hidden");
+  }, 650);
+  setTimeout(() => {
+    quoteText.classList.add("fade");
+    authorText.classList.add("fade");
+    gameText.classList.add("fade");
+  }, 600);
+  setTimeout(() => {
+    quoteText.classList.remove("fade");
+    authorText.classList.remove("fade");
+    gameText.classList.remove("fade");
+  }, 2000);
+});
+
 function onclick() {
   selectElement = document.querySelector("#game-select")
   output = selectElement.value
@@ -93,7 +107,6 @@ function onclick() {
   document.getElementById("tweet-quote").style.backgroundColor = btnColor
   document.body.style.backgroundColor = bgColor
   document.body.style.color = txtColor
-  console.log(document.body.style.backgroundColor)
   // * Sets a new quote
   setQuote();
 }

@@ -6,27 +6,7 @@ body {
     color: rgb(3, 128, 211);
     height: 100vh;
     font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    transition: background-color 2.5s ease-in-out;
-}
-
-@keyframes backgroundFade {
-    0% {
-        background-color: rgb(255, 255, 255);
-    }
-
-    100% {
-        background-color: rgb(3, 128, 211);
-    }
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
+    transition: background-color 2s ease-in-out;
 }
 
 #quote-box {
@@ -37,8 +17,18 @@ body {
     color: inherit;
 }
 
+.hidden {
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.fade {
+    opacity: 1;
+    transition: opacity 1s;
+}
+
 .quote-text {
-    transition: color 2.5s ease-in-out;
+    transition: color 2s ease-in-out;
     font-weight: bold;
     display: flex;
     flex-wrap: wrap;
@@ -49,7 +39,7 @@ body {
 }
 
 .quote-author {
-    transition: color 2.5s ease-in-out;
+    transition: color 2s ease-in-out;
     font-weight: lighter;
     font-size: 1.4em;
     padding-bottom: 10px;
@@ -83,7 +73,7 @@ p {
     height: 40px;
     padding: 10px 20px 10px 20px;
     margin-bottom: 5px;
-    transition: background-color 2.5s ease-in-out;
+    transition: background-color 2s ease-in-out;
 }
 
 .button:hover {
@@ -110,7 +100,7 @@ a {
 }
 
 #game-select {
-    transition: color 2.5s ease-in-out;
+    transition: color 2s ease-in-out;
     border-radius: 5px;
     width: 220px;
     font-family: inherit;
